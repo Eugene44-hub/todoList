@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 600px;
+    background-color: white;
+    background-color: rgb(255, 228, 196);
+}
+
+.container {
+    margin: auto;
+    width: 500px;
+    box-shadow: 10px 10px 15px rgb(143, 138, 138), -10px -10px 30px rgb(245, 218, 222);
+    padding: 30px;
+    border-radius: 6px;
+    background-color: antiquewhite;
+    animation-name: b;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3;
+}
+
+input {
+    width: 100%;
+    border-style: none;
+    border-width: 1px;
+    outline: none;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: inherit;
+    box-shadow: inset -2px -2px 15px rgb(241, 208, 208), inset 5px 5px 20px rgb(221, 176, 176);
+    border-radius: 20px;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+    box-shadow: 4px 4px 15px rgb(230, 217, 217);
+    margin: 10px 0;
+    border-radius: 6px;
+}
+
+i {
+    float: right;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+#checked {
+    color: green;
+}
+
+#delete {
+    color: red;
+}
+
+button {
+    text-transform: uppercase;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: rgb(28, 29, 26);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px grey;
+}
+
+#clear-all {
+    background-color: red;
+    display: none;
+}

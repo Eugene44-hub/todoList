@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 600px;
+    background-color: white;
+    background-color: rgb(255, 228, 196);
+}
+
+.container {
+    margin: auto;
+    width: 500px;
+    box-shadow: 10px 10px 15px rgb(143, 138, 138), -10px -10px 30px rgb(245, 218, 222);
+    padding: 30px;
+    border-radius: 6px;
+    background-color: antiquewhite;
+    animation-name: boxshadow;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+}
+
+@keyframes boxshadow {
+    from {
+        box-shadow: 10px 10px 15px rgb(143, 138, 138), -10px -10px 30px rgb(245, 218, 222);
+    }
+    to {
+        box-shadow: 0px 0px 0px rgb(143, 138, 138), 0px 0px 0px rgb(245, 218, 222);
+        ;
+    }
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3;
+    text-shadow: 4px 1px 5px grey;
+}
+
+input[type=text] {
+    width: 100%;
+    border-style: none;
+    border-width: 1px;
+    outline: none;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: inherit;
+    box-shadow: inset -2px -2px 15px rgb(241, 208, 208), inset 5px 5px 20px rgb(221, 176, 176);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+    box-shadow: 4px 4px 15px rgb(230, 217, 217);
+    border-radius: 6px;
+    position: relative;
+}
+
+i {
+    float: right;
+    margin: 0px 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px grey;
+}
+
+#checked {
+    color: green;
+}
+
+#delete {
+    color: red;
+}
+
+button {
+    text-transform: uppercase;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: rgb(28, 29, 26);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px grey;
+    width: 100%;
+}
+
+#clear-all {
+    background-color: red;
+    display: none;
+    width: 100%;
+}
+
+input[type=time],
+input[type=date] {
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    outline: none;
+}
+
+.timeTo {
+    text-align: center;
+    background-color: black;
+    padding: 10px;
+    width: 40%;
+    margin: auto;
+    color: white
+}
+
+input[type=date] {
+    width: 31%;
+}
+
+input[type=time] {
+    width: 23%;
+}
+
+legend {
+    text-align: right;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+fieldset {
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+label[for=date] {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: small;
+    position: absolute;
+    left: 50%;
+    top: -40%;
+}

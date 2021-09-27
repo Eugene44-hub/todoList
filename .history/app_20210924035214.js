@@ -1,0 +1,9 @@
+class Task {
+    constructor() {
+
+    }
+
+    addTask() {
+
+    }
+}

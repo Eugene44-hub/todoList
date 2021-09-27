@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="task-list">
+            <h1>task list</h1>
+            <label for="addTask">Add task</label><br>
+            <input type="text" placeholder="New task">
+            <label for="timer">Set Time: </label>
+            <input type="date" placeholder="month" id=month>
+
+            <input type="time" value="13:00">
+            <button id="add">add task <i class="fas fa-plus" id="plus"></i></button>
+            <h2>todo list</h2>
+
+
+            <ul>
+                <div class=timeTo>
+                    <p>Time To</p>
+                    <p>00:00</p>
+                </div>
+                <li>wlak the dog
+                    <i class="fas fa-trash-alt" id="delete"></i>
+                    <i class="fas fa-check-square" id="checked"></i>
+                </li>
+                <!-- <li>wlak the dog
+                    <i class="fas fa-trash-alt" id="delete"></i>
+                    <i class="fas fa-check-square" id="checked"></i>
+                </li>
+                <li>wlak the dog
+                    <i class="fas fa-trash-alt" id="delete"></i>
+                    <i class="fas fa-check-square" id="checked"></i>
+                </li>
+                <li>wlak the dog
+
+                    <i class="fas fa-trash-alt" id="delete"></i>
+                    <i class="fas fa-check-square" id="checked"></i>
+                </li><span>24hours format only</span><br>
+                <li>wlak the dog
+                    <i class="fas fa-trash-alt" id="delete"></i>
+                    <i class="fas fa-check-square" id="checked"></i>
+                </li> -->
+            </ul>
+            <button id="clear-all">clear all </button>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
