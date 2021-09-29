@@ -1,4 +1,3 @@
-// declaring global variables
 const input = document.querySelector('input')
 const button = document.querySelector('#add')
 let list = document.querySelector('ul')

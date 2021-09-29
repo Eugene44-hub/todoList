@@ -1,4 +1,3 @@
-// declaring global variables
 const input = document.querySelector('input')
 const button = document.querySelector('#add')
 let list = document.querySelector('ul')
@@ -7,7 +6,7 @@ const check = document.querySelector('#checked')
 const clear = document.querySelector('#clear-all')
 const date = document.querySelector('input[type=date]');
 const time = document.querySelector('input[type=time]');
-
+const li = document.querySelector('li');
 class Task {
     constructor(input) {
             this.input = input.value;
@@ -142,21 +141,9 @@ class Task {
                 Swal.fire({
                     title: 'Its time To',
                     text: task[i],
-
-                });
-
-
-                if (task[i]) {
-                    task.splice([i], 1)
-                    hrsLs.splice([i], 1)
-                    minLs.splice([i], 1)
-                    dateLs.splice([i], 1)
-                }
-
-                localStorage.setItem('tasks', JSON.stringify(task))
-                localStorage.setItem('hours', JSON.stringify(hrsLs))
-                localStorage.setItem('minutes', JSON.stringify(minLs))
-                localStorage.setItem('dates', JSON.stringify(dateLs))
+                    timer: 4000
+                })
+                this.deleteFromLs(task[i])
             }
         }
 
@@ -195,9 +182,9 @@ function eventListeners() {
 
         }
         if (e.target.id === 'delete') {
-
             if (confirm('are you sure you want to delete'))
                 task.deleteTask(e.target.parentElement);
+            console.log(e.target.parentElement)
         }
         if (e.target.id == 'checked') {
             task.taskComplete(e.target.parentElement);
@@ -208,7 +195,7 @@ function eventListeners() {
         }
 
     })
-
+    consoele.log(li.textcons)
     document.addEventListener('DOMContentLoaded', Task.displayfromLs())
 
 }
@@ -224,9 +211,6 @@ if (JSON.parse(localStorage.getItem('tasks')).length === 0 || localStorage.getIt
 };
 
 //convert to seconds first then subtract timeTO with currentTime
-// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
-// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
-// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
 // console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
 // console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
 // console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)

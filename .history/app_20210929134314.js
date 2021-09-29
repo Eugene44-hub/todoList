@@ -1,4 +1,3 @@
-// declaring global variables
 const input = document.querySelector('input')
 const button = document.querySelector('#add')
 let list = document.querySelector('ul')
@@ -7,7 +6,7 @@ const check = document.querySelector('#checked')
 const clear = document.querySelector('#clear-all')
 const date = document.querySelector('input[type=date]');
 const time = document.querySelector('input[type=time]');
-
+// 
 class Task {
     constructor(input) {
             this.input = input.value;
@@ -230,4 +229,4 @@ if (JSON.parse(localStorage.getItem('tasks')).length === 0 || localStorage.getIt
 // console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
 // console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
 // console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
-// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
+// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)wmldm

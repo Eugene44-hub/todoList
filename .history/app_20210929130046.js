@@ -1,4 +1,3 @@
-// declaring global variables
 const input = document.querySelector('input')
 const button = document.querySelector('#add')
 let list = document.querySelector('ul')
@@ -7,7 +6,7 @@ const check = document.querySelector('#checked')
 const clear = document.querySelector('#clear-all')
 const date = document.querySelector('input[type=date]');
 const time = document.querySelector('input[type=time]');
-
+const li = document.querySelector('li');
 class Task {
     constructor(input) {
             this.input = input.value;
@@ -142,10 +141,8 @@ class Task {
                 Swal.fire({
                     title: 'Its time To',
                     text: task[i],
-
-                });
-
-
+                    timer: 4000
+                })
                 if (task[i]) {
                     task.splice([i], 1)
                     hrsLs.splice([i], 1)
@@ -156,7 +153,7 @@ class Task {
                 localStorage.setItem('tasks', JSON.stringify(task))
                 localStorage.setItem('hours', JSON.stringify(hrsLs))
                 localStorage.setItem('minutes', JSON.stringify(minLs))
-                localStorage.setItem('dates', JSON.stringify(dateLs))
+                localStorage.setItem('dates', JSON.stringify(dateL))
             }
         }
 
@@ -195,9 +192,9 @@ function eventListeners() {
 
         }
         if (e.target.id === 'delete') {
-
             if (confirm('are you sure you want to delete'))
                 task.deleteTask(e.target.parentElement);
+            console.log(e.target.parentElement)
         }
         if (e.target.id == 'checked') {
             task.taskComplete(e.target.parentElement);

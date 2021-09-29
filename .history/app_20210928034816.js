@@ -1,4 +1,3 @@
-// declaring global variables
 const input = document.querySelector('input')
 const button = document.querySelector('#add')
 let list = document.querySelector('ul')
@@ -38,9 +37,6 @@ class Task {
             localStorage.setItem('minutes', JSON.stringify(minutes))
             localStorage.setItem('dates', JSON.stringify(dates))
             console.log(hour, minute)
-            setInterval(e => {
-                this.TimeUp()
-            }, 1000)
         }
         // delete Task from DOM
     deleteTask(task) {
@@ -123,9 +119,7 @@ class Task {
 
         console.log(task.textContent)
     }
-
-
-    TimeUp() {
+    static TimeUp() {
         const hrsLs = JSON.parse(localStorage.getItem('hours'))
         const minLs = JSON.parse(localStorage.getItem('minutes'));
         const dateLs = JSON.parse(localStorage.getItem('dates'));
@@ -139,49 +133,39 @@ class Task {
         for (let i = 0; i < dateLs.length; i++) {
             let stored = new Date(`${dateLs[i]}T${hrsLs[i]}:${minLs[i]}:00Z`)
             if (currentDate.getDate() == stored.getDate() && (currentDate.getMonth() + 1) == (stored.getMonth() + 1) && currentDate.getHours() == stored.getUTCHours() && currentDate.getMinutes() == stored.getMinutes()) {
-                Swal.fire({
-                    title: 'Its time To',
-                    text: task[i],
 
-                });
-
-
-                if (task[i]) {
-                    task.splice([i], 1)
-                    hrsLs.splice([i], 1)
-                    minLs.splice([i], 1)
-                    dateLs.splice([i], 1)
-                }
-
-                localStorage.setItem('tasks', JSON.stringify(task))
-                localStorage.setItem('hours', JSON.stringify(hrsLs))
-                localStorage.setItem('minutes', JSON.stringify(minLs))
-                localStorage.setItem('dates', JSON.stringify(dateLs))
+                if (Swal.fire({
+                        title: 'Its time To',
+                        text: task[i]
+                    })) {
+                    return
+                } else
             }
         }
+    }
+    return
+}
+setTimer() {
+    const timeTo = new Date(`${date.value}T${time.value}:00Z`)
+
+    return {
+        hours: (timeTo.getUTCHours() < 10 ? '0' : '') + timeTo.getUTCHours(),
+        minutes: (timeTo.getMinutes() < 10 ? '0' : '') + timeTo.getMinutes()
 
     }
-    setTimer() {
-        const timeTo = new Date(`${date.value}T${time.value}:00Z`)
 
-        return {
-            hours: (timeTo.getUTCHours() < 10 ? '0' : '') + timeTo.getUTCHours(),
-            minutes: (timeTo.getMinutes() < 10 ? '0' : '') + timeTo.getMinutes()
+}
 
-        }
-
-    }
-
-    //clear all ask
-    clearAll() {
-        list.innerHTML = '';
-        localStorage.setItem('tasks', JSON.stringify([]))
-        localStorage.setItem('hours', JSON.stringify([]))
-        localStorage.setItem('minutes', JSON.stringify([]))
-        localStorage.setItem('dates', JSON.stringify([]))
-        clear.style.display = 'none';
-        Swal.fire({ title: 'Cleared', text: 'Tasks Cleared successfully', icon: 'success' })
-    }
+//clear all ask
+clearAll() {
+    list.innerHTML = '';
+    localStorage.setItem('tasks', JSON.stringify([]))
+    localStorage.setItem('hours', JSON.stringify([]))
+    localStorage.setItem('minutes', JSON.stringify([]))
+    localStorage.setItem('dates', JSON.stringify([]))
+    clear.style.display = 'none';
+    Swal.fire({ title: 'Cleared', text: 'Tasks Cleared successfully', icon: 'success' })
+}
 }
 
 
@@ -195,9 +179,9 @@ function eventListeners() {
 
         }
         if (e.target.id === 'delete') {
-
             if (confirm('are you sure you want to delete'))
                 task.deleteTask(e.target.parentElement);
+
         }
         if (e.target.id == 'checked') {
             task.taskComplete(e.target.parentElement);
@@ -226,8 +210,9 @@ if (JSON.parse(localStorage.getItem('tasks')).length === 0 || localStorage.getIt
 //convert to seconds first then subtract timeTO with currentTime
 // console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
 // console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
-// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
-// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
-// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
-// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
-// console.log((((timeTo.getHours() * 60) - (currentDate.getHours() * 60)) / 60) - 1)
+
+
+
+setInterval(e => {
+    Task.TimeUp()
+}, 1000)

@@ -1,4 +1,3 @@
-// declaring global variables
 const input = document.querySelector('input')
 const button = document.querySelector('#add')
 let list = document.querySelector('ul')
@@ -7,7 +6,7 @@ const check = document.querySelector('#checked')
 const clear = document.querySelector('#clear-all')
 const date = document.querySelector('input[type=date]');
 const time = document.querySelector('input[type=time]');
-
+const li = document.querySelector('li');
 class Task {
     constructor(input) {
             this.input = input.value;
@@ -143,14 +142,15 @@ class Task {
                     title: 'Its time To',
                     text: task[i],
 
-                });
-
+                })
 
                 if (task[i]) {
                     task.splice([i], 1)
                     hrsLs.splice([i], 1)
                     minLs.splice([i], 1)
                     dateLs.splice([i], 1)
+
+
                 }
 
                 localStorage.setItem('tasks', JSON.stringify(task))
@@ -195,7 +195,7 @@ function eventListeners() {
 
         }
         if (e.target.id === 'delete') {
-
+            getLi(e.target.parentElement)
             if (confirm('are you sure you want to delete'))
                 task.deleteTask(e.target.parentElement);
         }
